@@ -4,23 +4,27 @@ import VueRouter from 'vue-router';
 const BlogIndex = () => import(/* webpackChunkName: "blogIndex" */ '@/views/blog/Index');
 const Home = () => import(/* webpackChunkName: "home" */ '@/views/Home');
 const About = () => import(/* webpackChunkName: "about" */ '@/views/About.vue');
-const My = () => import(/* webpackChunkName: "My" */ '@/views/blog/My/Index.vue');
-const Notes = () => import(/* webpackChunkName: "My" */ '@/views/blog/Notes/Index.vue');
-const Article = () => import(/* webpackChunkName: "My" */ '@/views/blog/Article/Index.vue');
-const Icemoo = () => import(/* webpackChunkName: "My" */ '@/views/blog/Icemoo/Index.vue');
+const My = () => import(/* webpackChunkName: "my" */ '@/views/blog/My/Index.vue');
+const Notes = () => import(/* webpackChunkName: "notes" */ '@/views/blog/Notes/Index.vue');
+const Article = () => import(/* webpackChunkName: "article" */ '@/views/blog/Article/Index.vue');
+const Icemoo = () => import(/* webpackChunkName: "icemoo" */ '@/views/blog/Icemoo/Index.vue');
+const AllSel = () => import(/* webpackChunkName: "allSel" */ '@/components/AllSel/Index.vue');
 
 Vue.use(VueRouter)
 
 const routes = [
     {
         path: '/',
-        redirect: 'home',
         component: BlogIndex,
         children: [
             {
-                path: 'home',
+                path: '',
                 name: 'Home',
                 component: Home
+            },
+            {
+                path: 'home',
+                redirect: {name: 'Home'}
             },
             {
                 path: 'my',
@@ -41,7 +45,12 @@ const routes = [
                 path: 'icemoo',
                 name: 'Icemoo',
                 component: Icemoo
-            }
+            },
+            {
+                path: 'allsel',
+                name: 'AllSel',
+                component: AllSel
+            },
         ]
     },
     {

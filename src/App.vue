@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-        <router-view/>
+    <router-view/>
   </div>
 </template>
 
@@ -8,13 +8,13 @@
 export default {
   name: 'app',
   components: {
-    // HelloWorld
   }
 }
 </script>
 
 <style>
 #app {
+  background: #000;
 }
 
 html, body, #app, .el-container {
